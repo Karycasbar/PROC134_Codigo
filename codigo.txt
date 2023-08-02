@@ -1,0 +1,15 @@
+planet_speeds = []
+for planet_data in suitable_planets:
+  distance = 2 * 3.14 * (planet_data[8] * 1.496e+8)
+  time = planet_data[9] * 86400
+  speed = distance / time
+  planet_speeds.append(speed)
+#Dejaremos la lista de planetas adecuados tal como está
+speed_supporting_planets = list(suitable_planets)
+
+temp_speed_supporting_planets = list(suitable_planets)
+for index, planet_data in enumerate(temp_speed_supporting_planets):
+  if planet_speeds[index] > 200:
+    speed_supporting_planets.remove(planet_data)
+
+print(len(speed_supporting_planets))
